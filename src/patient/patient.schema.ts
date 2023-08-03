@@ -14,7 +14,7 @@ export class Patient {
   @Prop({ required: true })
   password: string;
 
-  @Prop()
+  @Prop({ type: Date })
   birthDate: Date;
 
   @Prop()

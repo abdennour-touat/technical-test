@@ -8,22 +8,9 @@ export class PatientService {
   constructor(
     @InjectModel(Patient.name) private PatientModel: Model<Patient>,
   ) {}
-  //functionality 1 : view and upadate patient information
-  async getPatientInfo(id: string) {
-    const patient = await this.PatientModel.findById(id);
-    return patient;
-  }
-  async updatePatientInfo(id: string, patient: Patient) {
-    const updatedPatient = await this.PatientModel.findByIdAndUpdate(
-      id,
-      patient,
-      { new: true },
-    );
-    return updatedPatient;
-  }
 
   //functionality 2 : view their own  prescription
-  async getPrescription(id: string) {
+  async getPrescriptions(id: string) {
     //get the prescription using the id of the patient
     const prescription = await this.PatientModel.findById(id).populate(
       'Prescription',
@@ -37,5 +24,15 @@ export class PatientService {
       'MedicalHistory',
     );
     return medicalHistory;
+  }
+  //create patient
+  async createPatient(patient: Patient) {
+    const newPatient = new this.PatientModel(patient);
+    return newPatient.save();
+  }
+  //update patient
+  async updatePatient(patient: Patient, id: string) {
+    const updatedPatient = this.PatientModel.findByIdAndUpdate(id, patient);
+    return updatedPatient;
   }
 }
