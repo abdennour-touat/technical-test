@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { MedicalHistory, MedicalHistorySchema } from './medical-history.schema';
+import { MedicalHistorySchema } from './medical-history.schema';
 
 @Module({
   imports: [

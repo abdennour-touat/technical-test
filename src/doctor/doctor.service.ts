@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Patient, PatientSchema } from 'src/patient/patient.schema';
+import { Patient } from 'src/patient/patient.schema';
 import { Doctor } from './doctor.schema';
 import { Prescription } from 'src/prescription/prescription.schema';
 import { MedicalHistory } from 'src/medical-history/medical-history.schema';
