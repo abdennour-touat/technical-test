@@ -7,10 +7,10 @@ export type PrescriptionDocument = HydratedDocument<Prescription>;
 
 @Schema()
 export class Prescription {
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Patient' })
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: Patient.name })
   patientId: Patient;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Doctor' })
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: Doctor.name })
   doctorId: Doctor;
 
   @Prop()

@@ -17,6 +17,11 @@ export class DoctorService {
     @InjectModel(Doctor.name) private readonly doctorModel: Model<Doctor>,
   ) {}
 
+  //get all doctors
+  async getAllDoctors() {
+    const doctors = await this.doctorModel.find();
+    return doctors;
+  }
   // functionality 1 : view and upadate patient information
   async getPatientInfo(id: string) {
     const patient = await this.patientModel.findById(id);

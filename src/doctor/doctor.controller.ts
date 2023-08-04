@@ -21,6 +21,12 @@ export class DoctorController {
     const newDoctor = await this.doctorService.createDoctor(doctor);
     return newDoctor;
   }
+  //get all doctors
+  @Get()
+  async getAllDoctors() {
+    const doctors = await this.doctorService.getAllDoctors();
+    return doctors;
+  }
 
   //create prescription
   @Post('prescription')
